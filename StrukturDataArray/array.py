@@ -2,7 +2,7 @@ capacity = 10
 nim = [None] * capacity
 nama = [None] * capacity
 count = 0
-# ===== FUNGSI INSERT DAN DELETE =====
+
 
 def insert_beginning():
     global count
