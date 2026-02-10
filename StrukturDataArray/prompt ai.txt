@@ -1,0 +1,2 @@
+Saya memiliki tugas membuat program array kapasitas 10 untuk menyimpan data mahasiswa (NIM dan nama) menggunakan Java dan Python.
+Tolong bantu saya menyusun logika program berbasis menu (insert at beginning, insert at position, insert at end, delete, dan show data) tanpa menggunakan library struktur data bawaan. (gpt)
