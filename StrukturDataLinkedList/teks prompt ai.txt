@@ -1,0 +1,19 @@
+Saya menggunakan bantuan AI (ChatGPT by OpenAI) untuk membantu memahami dan
+menyusun program struktur data Singly Linked List.
+
+Prompt yang saya gunakan kepada AI adalah sebagai berikut:
+
+"Jelaskan dan bantu buatkan contoh program Singly Linked List tanpa
+menggunakan library LinkedList, menggunakan bahasa Java dan Python.
+Program digunakan untuk menyimpan data mahasiswa (NIM dan Nama) dengan
+menu insert at beginning, insert at given position, insert at end,
+delete from beginning, delete given position, delete from end,
+delete first occurrence berdasarkan NIM, show data, dan exit.
+Setiap operasi insert harus menambah variabel count dan setiap operasi
+delete harus mengurangi variabel count."
+
+AI digunakan sebagai alat bantu pembelajaran untuk memahami konsep,
+alur program, dan struktur kode, bukan sebagai pengganti pengerjaan mandiri.
+
+Tools AI yang digunakan:
+ChatGPT (OpenAI)
