@@ -1,0 +1,18 @@
+teks prompt ai
+
+Saya menggunakan bantuan AI (ChatGPT) untuk membantu memahami konsep dan menyusun program Circular Doubly Linked List.
+
+Prompt yang saya gunakan:
+"Buatkan contoh dan jelaskan program Java dan Python menggunakan struktur data Circular Doubly Linked List untuk simulasi teks berita berjalan seperti di televisi. 
+Program harus memiliki fitur insert dan delete berita, menampilkan berita secara forward dan backward dengan delay 3 detik, serta berjalan secara terus-menerus (loop/circular) hingga dihentikan oleh pengguna. 
+Tidak boleh menggunakan library LinkedList bawaan."
+
+AI digunakan sebagai referensi untuk:
+1. Memahami konsep Circular Doubly Linked List
+2. Menyusun struktur node dan pointer (next dan prev)
+3. Membuat logika perulangan circular
+4. Implementasi delay tampilan berita
+5. Menyusun kode agar rapi dan mudah dipahami
+
+Tools AI yang digunakan:
+ChatGPT (OpenAI)
