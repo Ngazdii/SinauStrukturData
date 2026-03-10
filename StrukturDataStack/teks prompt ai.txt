@@ -1,0 +1,14 @@
+teks prompt ai 
+
+Nama Tool AI:
+ChatGPT (OpenAI)
+
+Prompt yang digunakan:
+
+"Saya sedang mempelajari struktur data Stack pada mata kuliah Struktur Data. 
+Berikan contoh dan penjelasan program Java dan Python untuk mengevaluasi ekspresi aritmatika menggunakan struktur data Stack berbasis Linked List (tanpa menggunakan library Stack bawaan). 
+Program menerima input ekspresi aritmatika dalam bentuk infix, kemudian diubah menjadi postfix expression. 
+Setelah itu tampilkan proses evaluasi postfix secara step-by-step yang menunjukkan operasi push dan pop pada stack serta hasil akhir perhitungan."
+
+Output dari AI:
+AI memberikan contoh implementasi program Java dan Python yang menggunakan struktur data Stack berbasis Linked List untuk mengevaluasi ekspresi aritmatika. Program tersebut menampilkan proses konversi dari infix ke postfix, proses evaluasi postfix dengan operasi push dan pop pada stack, serta menampilkan hasil akhir dari perhitungan ekspresi aritmatika.
