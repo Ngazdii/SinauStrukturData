@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Java - QueueGUIPro",
+      "type": "java",
+      "name": "Launch QueueGUIPro",
+      "request": "launch",
+      "mainClass": "Queue",
+      "preLaunchTask": "Compile Java",
+      "cwd": "${workspaceFolder}",
+      "args": "",
+      "vmArgs": "-cp ${workspaceFolder};${workspaceFolder}/flatlaf-0.24.jar"
+    }
+  ]
+}
