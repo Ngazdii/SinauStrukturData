@@ -1,0 +1,39 @@
+teks prompt ai
+
+Tools AI yang digunakan:
+ChatGPT (OpenAI)
+
+Prompt:
+
+Saya sedang mengerjakan tugas struktur data tentang Binary Search Tree (BST) menggunakan bahasa Java dan Python.
+
+Tugasnya adalah membuat program BST dengan fitur:
+- Tambah data (insert)
+- Cari data (search)
+- Hapus data (delete)
+- Traversal (inorder, preorder, postorder)
+
+Data yang digunakan terdiri dari ID dan Nama, dan untuk testing program harus bisa membaca data dari file CSV (data.csv).
+
+Saya ingin:
+1. Program dibuat tanpa menggunakan library struktur data bawaan
+2. Implementasi BST menggunakan class Node (left, right)
+3. Program memiliki menu interaktif
+4. BST awal dalam kondisi kosong (tidak ada data default)
+5. Menambahkan fitur load data dari file CSV dengan format:
+   ID,Nama
+6. Menampilkan output yang rapi dan mudah dipahami
+7. Menambahkan fitur tambahan seperti:
+   - Menampilkan semua data
+   - Menampilkan jumlah node (count)
+   - Menampilkan tinggi tree
+
+Selain itu, saya juga meminta penjelasan singkat tentang:
+- Cara kerja insert pada BST
+- Cara kerja delete (3 kondisi: leaf, 1 child, 2 children)
+- Cara kerja traversal (inorder, preorder, postorder)
+
+Output yang diharapkan:
+- Source code Java lengkap
+- Source code Python lengkap
+- Penjelasan singkat setiap fitur

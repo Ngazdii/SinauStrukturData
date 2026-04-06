@@ -46,7 +46,6 @@ class BST:
         elif id > root.id:
             root.right = self.delete(root.right, id)
         else:
-            # 1 child / no child
             if root.left is None:
                 self.count -= 1
                 return root.right
@@ -54,7 +53,6 @@ class BST:
                 self.count -= 1
                 return root.left
 
-            # 2 children
             temp = self.minValue(root.right)
             root.id = temp.id
             root.nama = temp.nama
@@ -87,6 +85,14 @@ class BST:
             self.postorder(root.right)
             print(root.id, "-", root.nama)
 
+    # ✅ TAMBAHAN: SHOW ALL DATA
+    def show_all(self):
+        if self.root is None:
+            print("Tree kosong")
+            return
+        print("\n=== SEMUA DATA (INORDER) ===")
+        self.inorder(self.root)
+
     # LOAD CSV
     def load_csv(self, filename):
         try:
@@ -117,8 +123,9 @@ while True:
     print("4. Inorder")
     print("5. Preorder")
     print("6. Postorder")
-    print("7. Load dari CSV")
-    print("8. Exit")
+    print("7. Show All Data")  # ✅ BARU
+    print("8. Load dari CSV")
+    print("9. Exit")
 
     pilih = input("Pilih: ")
 
@@ -149,8 +156,11 @@ while True:
         bst.postorder(bst.root)
 
     elif pilih == "7":
+        bst.show_all()  # ✅ PAKAI METHOD
+
+    elif pilih == "8":
         file = input("Nama file CSV: ")
         bst.load_csv(file)
 
-    elif pilih == "8":
+    elif pilih == "9":
         break
