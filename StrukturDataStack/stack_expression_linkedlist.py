@@ -21,7 +21,7 @@ class StackLL:
 
     def pop(self):
         if self.is_empty():
-            return None
+            raise Exception("Stack kosong!")
         value = self.top.data
         self.top = self.top.next
         return value
@@ -40,124 +40,127 @@ class StackLL:
         print("]")
 
 
+# ================= OPERATOR =================
 def precedence(op):
-    if op in ["+", "-"]:
-        return 1
-    if op in ["*", "/"]:
-        return 2
+    if op == "^": return 3
+    if op in ["*", "/"]: return 2
+    if op in ["+", "-"]: return 1
     return 0
 
 
 def is_operator(op):
-    return op in ["+", "-", "*", "/"]
+    return op in ["+", "-", "*", "/", "^"]
 
 
+# ================= TOKENIZER =================
+def tokenize(expr):
+    tokens = re.findall(r'\d+\.?\d*|[()+\-*/^]', expr)
+
+    # handle unary minus
+    result = []
+    i = 0
+    while i < len(tokens):
+        if tokens[i] == "-" and (i == 0 or tokens[i-1] in "(+*/^-"):
+            result.append("-" + tokens[i+1])
+            i += 2
+        else:
+            result.append(tokens[i])
+            i += 1
+
+    return result
+
+
+# ================= INFIX → POSTFIX =================
 def infix_to_postfix(tokens):
-
     stack = StackLL()
-    postfix = ""
+    postfix = []
 
     print("\n=== PROSES INFIX → POSTFIX ===")
 
     for t in tokens:
+        print("\nToken:", t)
 
-        print("\nToken :", t)
-
-        if t.isdigit():
-            postfix += t
+        if re.match(r'-?\d+\.?\d*', t):
+            postfix.append(t)
             print("Masuk ke postfix")
 
         elif t == "(":
             stack.push(t)
-            print("Push '(' ke stack")
 
         elif t == ")":
-
             while stack.peek() != "(":
-                postfix += stack.pop()
-
+                postfix.append(stack.pop())
             stack.pop()
-            print("Pop sampai '('")
 
         elif is_operator(t):
-
             while (not stack.is_empty() and
                    precedence(stack.peek()) >= precedence(t)):
-
-                postfix += stack.pop()
-
+                postfix.append(stack.pop())
             stack.push(t)
-            print("Push operator ke stack")
 
-        print("Stack :", end=" ")
+        print("Stack:", end=" ")
         stack.print_stack()
-
-        print("Postfix :", postfix)
+        print("Postfix:", postfix)
 
     while not stack.is_empty():
-        postfix += stack.pop()
+        postfix.append(stack.pop())
 
-    print("\nFinal Postfix :", postfix)
-
+    print("\nFinal Postfix:", postfix)
     return postfix
 
 
+# ================= EVALUASI =================
 def evaluate_postfix(postfix):
-
     stack = StackLL()
 
     print("\n=== PROSES EVALUASI POSTFIX ===")
 
     for t in postfix:
-
-        if t.isdigit():
-
-            stack.push(t)
+        if re.match(r'-?\d+\.?\d*', t):
+            stack.push(float(t))
             print("Push", t)
 
-            print("Stack :", end=" ")
-            stack.print_stack()
-
         else:
+            try:
+                b = stack.pop()
+                a = stack.pop()
+            except:
+                raise Exception("Error: operand kurang!")
 
-            b = float(stack.pop())
-            a = float(stack.pop())
-
-            if t == "+":
-                result = a + b
-            elif t == "-":
-                result = a - b
-            elif t == "*":
-                result = a * b
+            if t == "+": result = a + b
+            elif t == "-": result = a - b
+            elif t == "*": result = a * b
             elif t == "/":
+                if b == 0:
+                    raise Exception("Error: pembagian dengan nol!")
                 result = a / b
+            elif t == "^": result = a ** b
 
-            print("Pop", a, "dan", b)
-            print("Hitung :", a, t, b, "=", result)
+            print(f"Hitung: {a} {t} {b} = {result}")
+            stack.push(result)
 
-            stack.push(str(result))
+        print("Stack:", end=" ")
+        stack.print_stack()
 
-            print("Stack :", end=" ")
-            stack.print_stack()
-
-    return float(stack.pop())
+    return stack.pop()
 
 
+# ================= MAIN =================
 while True:
-
     print("\n=================================")
     expr = input("Masukkan ekspresi aritmatika : ")
 
-    tokens = re.findall(r'\d+|[()+\-*/]', expr)
+    try:
+        tokens = tokenize(expr)
+        postfix = infix_to_postfix(tokens)
+        result = evaluate_postfix(postfix)
 
-    postfix = infix_to_postfix(tokens)
+        print("\nHASIL AKHIR =", result)
 
-    result = evaluate_postfix(postfix)
-
-    print("\nHASIL AKHIR =", result)
+    except Exception as e:
+        print("ERROR:", e)
 
     ulang = input("\nHitung lagi? (y/n): ").lower()
-
     if ulang != "y":
         break
 
